@@ -75,7 +75,7 @@ def create_message(sender, to, subject, message_text):
 
 #service, id and message for the send function
 service = credentials()
-user_id = "thewhaledev@gmail.com"
+user_id = "#"
 message = create_message(sender, to, subject, message_text) #create message
 
 def send_message(service, user_id, message):
