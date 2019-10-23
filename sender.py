@@ -46,7 +46,7 @@ def credentials():
 #Article finder function and lists from articles.py
 
 message_text="""
-<h1>Good Afternoon Maisy!</h1>
+<h1>Good Afternoon!</h1>
 <p>Here are some links:</p>
 """ # message text that will have links added to it
 
