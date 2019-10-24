@@ -45,8 +45,8 @@ def credentials():
 #Article finder function and lists from articles.py
 
 message_text="""
-<h1>Good Afternoon!</h1>
-<p>Here are some links:</p>
+<h1>Good Morning!</h1>
+<p>Your articles for the day:</p>
 """ # message text that will have links added to it
 
 merged = tuple(zip(articles.titles, articles.links)) #tuple of tuples from scraped links and titles
