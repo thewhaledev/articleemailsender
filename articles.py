@@ -6,9 +6,9 @@ import datetime
 date_today = datetime.date.today()
 
 #empty lists that will have contents added during the following loops, will be looped through to create email content
-titles = []
-dates = []
-links = []
+titles_raw = []
+dates_raw = []
+links_raw = []
 
 #funtion taking up to four links from The Guardian whose articles were published on the date of the code running.
 def guardian_articles(link):
@@ -45,17 +45,40 @@ def bbc_articles(link):
             titles.append(title)
             dates.append(date_object)
             links.append(link)
+           
+def telegraph_articles(link):
+    request = requests.get(link)
+    soup = bs4.BeautifulSoup(request.text, "html.parser")
+    results_link = soup.find_all("a", attrs={"class": "list-headline__link u-clickable-area__link"})
+    results_title = soup.find_all("span", attrs={"class": "list-headline__text"})
+    results_date = soup.find_all("time", attrs={"class": "card__date"})
+    for i in range(0,2):
+        raw_link = results_link[i].get("href")
+        link = "www.telegraph.co.uk" + raw_link
+        title = results_title[i].text
+        date = results_date[i].text
+        date_sliced = date[:11]
+        date_object = dt.strptime(date_sliced, "%d %b %Y").date()
+        if date_today == date_object:
+            titles_raw.append(title)
+            dates_raw.append(date_object)
+            links_raw.append(link)
 
 #calls the functions with different links to various topics
 guardian_articles("https://www.theguardian.com/society/prisons-and-probation")
 guardian_articles("https://www.theguardian.com/law/criminal-justice")
 bbc_articles("https://www.bbc.co.uk/news/topics/cnx753jenwzt/prisons")
 bbc_articles("https://www.bbc.co.uk/news/topics/cldy2dmy748t/crime")
+telegraph_articles("https://www.telegraph.co.uk/prisons/")
+telegraph_articles("https://www.telegraph.co.uk/crime/")
 
-#prints the lists for means of testing
-#print(titles)
-#print(dates)
-#print(links)
+titles = list(dict.fromkeys(titles_raw))
+dates = dates_raw
+links = list(dict.fromkeys(links_raw))
+
+print(titles)
+print(dates)
+print(links)
 
 
 
