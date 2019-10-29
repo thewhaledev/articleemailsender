@@ -18,3 +18,7 @@ I personally used this program at Python Anywhere as a scheduled task, allowing 
 ### Important Notes
 
 This program includes [Gmail's Python Quickstart](https://developers.google.com/gmail/api/quickstart/python), you should make sure to keep the "credentials" function, otherwise you will not be able to begin authenticating this program.
+
+### Updates
+
+The program now functions with The Telegraph, another British publication.
