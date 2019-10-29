@@ -49,9 +49,7 @@ message_text="""
 <p>Your articles for the day:</p>
 """ # message text that will have links added to it
 
-merged = tuple(zip(articles.titles, articles.links)) #tuple of tuples from scraped links and titles
-
-for item in merged: # for loop adding link html to the message text
+for item in articles.merged: # for loop adding link html to the message text
     message_text += "<a href='" + item[1] + "'" + ">" + item[0] + "</a>"
     message_text += "<br>"
     if len(message_text) == 60:
