@@ -76,6 +76,8 @@ titles = list(dict.fromkeys(titles_raw))
 dates = dates_raw
 links = list(dict.fromkeys(links_raw))
 
+merged = tuple(zip(titles, links)) #tuple of tuples from scraped links and titles
+
 print(titles)
 print(dates)
 print(links)
