@@ -17,5 +17,4 @@ I personally used this program at Python Anywhere as a scheduled task, allowing 
 
 ### Important Notes
 
-Make sure to use [Gmail's Python Quickstart](https://developers.google.com/gmail/api/quickstart/python) in order to authenticate
-your account, otherwise the program won't work.
+This program includes [Gmail's Python Quickstart](https://developers.google.com/gmail/api/quickstart/python), you should make sure to keep the "credentials" function, otherwise you will not be able to begin authenticating this program.
